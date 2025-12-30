@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>CareerSense | Resume Score</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body class="dashboard-body">
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">CareerSense</div>
+
+    <!-- Home Button -->
+    <button class="home-btn" onclick="goHome()" title="Go to Dashboard">
+        ⌂ Home
+    </button>
+</nav>
+
+
+<!-- MAIN -->
+<main class="resume-container">
+
+    <h1>Resume Score Checker</h1>
+    <p class="subtitle">Upload your resume & get instant ATS-friendly feedback</p>
+
+    <!-- EXPERIENCE INFO -->
+    <div class="experience-guide">
+        <strong>Experience Levels</strong>
+        <ul>
+            <li>0 – 1 years → <span>Fresher / Entry</span></li>
+            <li>1 – 2 years → <span>Junior</span></li>
+            <li>2 – 5 years → <span>Mid-level</span></li>
+            <li>5+ years → <span>Senior</span></li>
+        </ul>
+    </div>
+
+    <!-- FORM -->
+    <form id="resume-form" class="upload-card">
+        <label>
+            Upload Resume (PDF / DOCX)
+            <input type="file" id="resume-file" required />
+        </label>
+
+        <label>
+            Years of Experience
+            <input type="number" id="experience" min="0" placeholder="e.g. 2" required />
+        </label>
+
+        <button type="submit">Analyze Resume</button>
+    </form>
+
+    <!-- RESULT -->
+    <section id="result" class="result-card hidden">
+        <h2>Analysis Result</h2>
+
+        <div class="score-box">
+            <span>Resume Score</span>
+            <strong id="score">0</strong>
+        </div>
+
+        <div class="status">
+            <p><strong>Experience Level:</strong> <span id="level"></span></p>
+            <p><strong>ATS Friendly:</strong> <span id="ats"></span></p>
+            <p><strong>Suggested Roles:</strong> <span id="roles"></span></p>
+        </div>
+
+        <div class="skills">
+            <h3>Matched Skills</h3>
+            <ul id="matched-skills"></ul>
+
+            <h3>Missing Skills</h3>
+            <ul id="missing-skills"></ul>
+        </div>
+
+        <div class="suggestions">
+            <h3>Improvement Suggestions</h3>
+            <ul id="suggestions"></ul>
+        </div>
+
+        <div class="suggestions">
+            <h3>AI Career Coach Suggestions</h3>
+            <pre id="ai-suggestions"></pre>
+        </div>
+
+    </section>
+
+</main>
+
+<script src="/resume-score.js"></script>
+<script>
+    function goHome() {
+        window.location.href = "/home.html";
+    }
+</script>
+
+</body>
+</html>

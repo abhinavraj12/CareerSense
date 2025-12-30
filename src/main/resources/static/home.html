@@ -14,11 +14,16 @@
     <div class="logo">CareerSense</div>
 
     <div class="profile-menu">
-        <!-- ❌ NO src attribute -->
-        <img id="profile-pic" class="avatar" alt="Profile" />
+        <!-- DEFAULT avatar ALWAYS present -->
+        <img
+                id="profile-pic"
+                class="avatar"
+                src="/img/default-avatar.png"
+                alt="Profile"
+        />
 
         <div class="profile-info">
-            <span id="user-name"></span>
+            <span id="user-name">User</span>
             <span id="user-email" title=""></span>
         </div>
 
@@ -28,7 +33,9 @@
 
 <!-- MAIN -->
 <main class="dashboard">
-    <div class="card dark">Resume Score Checker</div>
+    <div class="card dark clickable" id="resume-score-card">
+        Resume Score Checker
+    </div>
     <div class="card dark">Job Matching</div>
 </main>
 
