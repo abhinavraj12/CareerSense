@@ -42,13 +42,14 @@ public class SecurityConfig {
                         ).permitAll()
 
                         .requestMatchers("/oauth2/**").permitAll()
+                        .requestMatchers("/job-match.html").authenticated()
                         .requestMatchers("/api/resume-score/**").authenticated()
                         .requestMatchers("/api/**").authenticated()
 
                         .anyRequest().authenticated()
                 )
 
-                // 🔁 REDIRECT UNAUTHENTICATED USERS TO LOGIN
+                // REDIRECT UNAUTHENTICATED USERS TO LOGIN
                 .exceptionHandling(ex -> ex
                         .authenticationEntryPoint((request, response, authException) -> {
                             // API requests → 401
@@ -61,7 +62,7 @@ public class SecurityConfig {
                         })
                 )
 
-                // 🔐 GOOGLE OAUTH2 LOGIN
+                // GOOGLE OAUTH2 LOGIN
                 .oauth2Login(oauth -> oauth
                         .authorizationEndpoint(auth -> auth
                                 .authorizationRequestResolver(
@@ -73,7 +74,7 @@ public class SecurityConfig {
                         .successHandler(successHandler)
                 )
 
-                // 🔐 JWT FILTER (VALIDATES COOKIE TOKEN)
+                // JWT FILTER (VALIDATES COOKIE TOKEN)
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
