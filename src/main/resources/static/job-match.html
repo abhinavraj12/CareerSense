@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Job Matching | CareerSense</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body class="job-match-body">
+
+<!-- HEADER -->
+<header class="navbar">
+    <div class="header-left">
+        <button class="home-btn" onclick="goHome()">Home</button>
+        <h1>Job Matching</h1>
+    </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="job-match-container">
+
+    <!-- UPLOAD CARD -->
+    <section class="upload-card">
+        <h2>Upload Your Resume</h2>
+        <p>We’ll extract your skills and find relevant jobs instantly.</p>
+
+        <input type="file" id="resume" />
+        <button class="primary-btn" onclick="uploadResume()">
+            Find Matching Jobs
+        </button>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="skills-section">
+        <h3>Extracted Skills</h3>
+        <div id="skills" class="skills"></div>
+    </section>
+
+    <!-- JOB RESULTS -->
+    <section class="jobs-section">
+        <h3>Recommended Jobs</h3>
+        <div id="jobs" class="jobs-grid"></div>
+    </section>
+
+</main>
+
+<script>
+    function goHome() {
+        window.location.href = "/home.html";
+    }
+
+    async function uploadResume() {
+        const file = document.getElementById("resume").files[0];
+        if (!file) {
+            alert("Please upload a resume");
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append("file", file);
+
+        const res = await fetch("/api/job-match/upload", {
+            method: "POST",
+            body: formData
+        });
+
+        if (res.status === 401) {
+            window.location.href = "/index.html";
+            return;
+        }
+
+        const data = await res.json();
+
+        // Skills
+        document.getElementById("skills").innerHTML =
+            data.skills.map(s => `<span>${s}</span>`).join("");
+
+        // Jobs
+        document.getElementById("jobs").innerHTML =
+            data.jobs.map(j => `
+            <div class="job-card">
+                <div class="job-header">
+                    <h4>${j.title}</h4>
+                    <span class="job-source">${j.source}</span>
+                </div>
+                <p class="job-meta">${j.company} • ${j.location}</p>
+                <a class="apply-btn" href="${j.applyLink}" target="_blank">
+                    Apply Now
+                </a>
+            </div>
+        `).join("");
+    }
+</script>
+
+</body>
+</html>

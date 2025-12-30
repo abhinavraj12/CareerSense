@@ -14,7 +14,6 @@
     <div class="logo">CareerSense</div>
 
     <div class="profile-menu">
-        <!-- DEFAULT avatar ALWAYS present -->
         <img
                 id="profile-pic"
                 class="avatar"
@@ -24,21 +23,46 @@
 
         <div class="profile-info">
             <span id="user-name">User</span>
-            <span id="user-email" title=""></span>
+            <span id="user-email"></span>
         </div>
 
-        <button id="logout-btn">Logout</button>
+        <button id="logout-btn" class="logout-btn">Logout</button>
     </div>
 </nav>
 
-<!-- MAIN -->
+<!-- DASHBOARD -->
 <main class="dashboard">
-    <div class="card dark clickable" id="resume-score-card">
-        Resume Score Checker
+
+    <div
+            class="card clickable"
+            id="resume-score-card"
+            onclick="goToResumeScore()"
+    >
+        <h3>Resume Score Checker</h3>
+        <p>Analyze your resume quality and ATS score</p>
     </div>
-    <div class="card dark">Job Matching</div>
+
+    <div
+            class="card clickable"
+            id="job-match-card"
+            onclick="goToJobMatch()"
+    >
+        <h3>Job Matching</h3>
+        <p>Discover jobs aligned with your skills</p>
+    </div>
+
 </main>
 
 <script src="/home.js"></script>
+<script>
+    function goToResumeScore() {
+        window.location.href = "/resume-score.html";
+    }
+
+    function goToJobMatch() {
+        window.location.href = "/job-match.html";
+    }
+</script>
+
 </body>
 </html>

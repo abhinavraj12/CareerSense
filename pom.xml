@@ -129,6 +129,13 @@
             <version>4.12.0</version>
         </dependency>
 
+        <!-- ================= JOB SCRAPING (NEW) ================= -->
+        <!-- HTML parsing for job scraping -->
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.17.2</version>
+        </dependency>
 
     </dependencies>
 
