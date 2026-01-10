@@ -11,15 +11,10 @@
 
 <!-- NAVBAR -->
 <nav class="navbar">
-    <div class="logo">CareerSense</div>
+    <div class="logo">CareerSense 🚀</div>
 
     <div class="profile-menu">
-        <img
-                id="profile-pic"
-                class="avatar"
-                src="/img/default-avatar.png"
-                alt="Profile"
-        />
+        <img id="profile-pic" class="avatar" src="/img/default-avatar.png" alt="Profile" />
 
         <div class="profile-info">
             <span id="user-name">User</span>
@@ -30,30 +25,48 @@
     </div>
 </nav>
 
+<!-- WELCOME -->
+<section style="text-align:center; margin:25px 0;">
+    <h2 id="welcome-text">👋 Welcome Back!</h2>
+    <p id="rotate-text" style="opacity:0.85;"></p>
+</section>
+
 <!-- DASHBOARD -->
 <main class="dashboard">
 
-    <div
-            class="card clickable"
-            id="resume-score-card"
-            onclick="goToResumeScore()"
-    >
-        <h3>Resume Score Checker</h3>
-        <p>Analyze your resume quality and ATS score</p>
+    <div class="card clickable" id="resume-score-card" onclick="goToResumeScore()">
+        <h3>📄 Resume Score Checker</h3>
+        <p>Analyze ATS score, strengths & missing skills</p>
     </div>
 
-    <div
-            class="card clickable"
-            id="job-match-card"
-            onclick="goToJobMatch()"
-    >
-        <h3>Job Matching</h3>
-        <p>Discover jobs aligned with your skills</p>
+    <div class="card clickable" id="job-match-card" onclick="goToJobMatch()">
+        <h3>🎯 Job Matching</h3>
+        <p>AI-recommended jobs based on your resume</p>
     </div>
 
 </main>
 
 <script src="/home.js"></script>
+
+<!-- Animated rotating text -->
+<script>
+    const texts = [
+        "🤖 AI analyzing your career path",
+        "📊 Smart insights. Real results.",
+        "🚀 Build skills employers want",
+        "🎯 Match with the right jobs"
+    ];
+
+    let index = 0;
+    const rotateEl = document.getElementById("rotate-text");
+
+    setInterval(() => {
+        rotateEl.textContent = texts[index];
+        index = (index + 1) % texts.length;
+    }, 2000);
+</script>
+
+<!-- Navigation -->
 <script>
     function goToResumeScore() {
         window.location.href = "/resume-score.html";
@@ -62,6 +75,15 @@
     function goToJobMatch() {
         window.location.href = "/job-match.html";
     }
+</script>
+
+<!-- Hide .html from URL -->
+<script>
+    (function () {
+        if (window.location.pathname.endsWith(".html")) {
+            window.history.replaceState({}, "", window.location.pathname.replace(".html", ""));
+        }
+    })();
 </script>
 
 </body>
