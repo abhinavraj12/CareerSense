@@ -8,13 +8,64 @@
 </head>
 
 <body class="auth-body">
+
 <div class="auth-card">
-    <h1>CareerSense</h1>
-    <p class="subtitle">AI-Powered Career Intelligence</p>
+    <h1>CareerSense 🚀</h1>
+
+    <p class="subtitle">
+        AI-Powered Career Intelligence
+    </p>
+
+    <!-- Animated text -->
+    <p id="typing-text" style="margin-top:10px; font-size:14px; opacity:0.9;"></p>
 
     <a class="google-btn" href="/oauth2/authorization/google">
-        Continue with Google
+        🔐 Continue with Google
     </a>
+
+    <p style="margin-top:12px; font-size:12px; opacity:0.7;">
+        📄 Resume • 🎯 Jobs • 🤖 AI Guidance
+    </p>
 </div>
+
+<!-- Typing Animation -->
+<script>
+    const messages = [
+        "📊 Analyze your resume with AI",
+        "🎯 Find jobs that match your skills",
+        "🤖 Get smart career suggestions",
+        "🚀 Grow faster with CareerSense"
+    ];
+
+    let i = 0;
+    let char = 0;
+    const el = document.getElementById("typing-text");
+
+    function typeEffect() {
+        if (char < messages[i].length) {
+            el.textContent += messages[i].charAt(char);
+            char++;
+            setTimeout(typeEffect, 50);
+        } else {
+            setTimeout(() => {
+                el.textContent = "";
+                char = 0;
+                i = (i + 1) % messages.length;
+                typeEffect();
+            }, 1500);
+        }
+    }
+    typeEffect();
+</script>
+
+<!-- Hide .html from URL -->
+<script>
+    (function () {
+        if (window.location.pathname.endsWith(".html")) {
+            window.history.replaceState({}, "", window.location.pathname.replace(".html", ""));
+        }
+    })();
+</script>
+
 </body>
 </html>
