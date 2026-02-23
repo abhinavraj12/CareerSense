@@ -4,7 +4,8 @@ spring:
 
   data:
     mongodb:
-      uri: mongodb://localhost:27017/careersense
+      uri: mongodb+srv://cojourneywithabhinav_db_user:${MONGO_PASSWORD}@cluster0.smag3qm.mongodb.net/CareerSense?retryWrites=true&w=majority
+#      uri: mongodb://localhost:27017/careersense
       auto-index-creation: true
 
   security:
