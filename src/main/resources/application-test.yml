@@ -2,12 +2,6 @@ spring:
   data:
     mongodb:
       database: testdb
-      port: 0
-
-  security:
-    oauth2:
-      client:
-        registration: {}
 
 jwt:
   secret: test-secret
