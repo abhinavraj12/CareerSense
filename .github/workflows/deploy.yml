@@ -41,4 +41,13 @@ jobs:
             docker stop careersense || true
             docker rm careersense || true
             docker pull ${{ secrets.DOCKER_USERNAME }}/careersense:latest
-            docker run -d --name careersense -p 80:8080 --restart always ${{ secrets.DOCKER_USERNAME }}/careersense:latest
+            docker run -d \
+              --name careersense \
+              -p 80:8080 \
+              -e MONGO_PASSWORD=${{ secrets.MONGO_PASSWORD }} \
+              -e GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }} \
+              -e GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }} \
+              -e JWT_SECRET=${{ secrets.JWT_SECRET }} \
+              -e OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }} \
+              --restart always \
+              ${{ secrets.DOCKER_USERNAME }}/careersense:latest

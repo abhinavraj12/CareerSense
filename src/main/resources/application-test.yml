@@ -1,0 +1,18 @@
+spring:
+  data:
+    mongodb:
+      database: testdb
+      port: 0
+
+  security:
+    oauth2:
+      client:
+        registration: {}
+
+jwt:
+  secret: test-secret
+  expiration: 10000
+
+openai:
+  api:
+    key: test-key
