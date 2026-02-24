@@ -3,27 +3,16 @@ spring:
     mongodb:
       database: testdb
 
-# Required for Flapdoodle 4.x (Spring Boot 3)
 de:
   flapdoodle:
     mongodb:
       embedded:
-        version: 6.0.5
+        version: 6.0.11
 
-# Test-safe JWT configuration (MUST be >= 32 characters)
 jwt:
   secret: "test-secret-key-which-is-at-least-32-characters-long!!"
   expiration: 86400000
 
-# Dummy OpenAI key for test context
 openai:
   api:
     key: "test-openai-key"
-
-# Optional: disable security auto config if OAuth causes issues
-# Uncomment ONLY if context fails due to security
-# spring:
-#   autoconfigure:
-#     exclude:
-#       - org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
-#       - org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientAutoConfigurationfix
