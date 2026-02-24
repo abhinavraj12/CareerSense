@@ -17,5 +17,6 @@ public class CareerSenseApplication {
         );
 		SpringApplication.run(CareerSenseApplication.class, args);
         System.out.println("CareerSenseApplication started");
+        System.out.println("CI/CD Working");
 	}
 }
