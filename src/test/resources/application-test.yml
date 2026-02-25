@@ -1,13 +1,7 @@
 spring:
   data:
     mongodb:
-      database: testdb
-
-de:
-  flapdoodle:
-    mongodb:
-      embedded:
-        version: 6.0.11
+      uri: mongodb://localhost:27017/testdb
 
 jwt:
   secret: "test-secret-key-which-is-at-least-32-characters-long!!"
