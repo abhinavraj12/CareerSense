@@ -64,7 +64,7 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/careersense:latest
             docker run -d \
               --name careersense \
-              -p 8080:80 \
+              -p 8080:8080 \
               -e MONGO_PASSWORD=${{ secrets.MONGO_PASSWORD }} \
               -e GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }} \
               -e GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }} \
