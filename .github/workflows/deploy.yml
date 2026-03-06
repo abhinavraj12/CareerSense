@@ -9,7 +9,7 @@ jobs:
   build-test-deploy:
     runs-on: ubuntu-latest
 
-    # Add MongoDB service container
+    # Add MongoDB service container.
     services:
       mongodb:
         image: mongo:6.0
