@@ -1,5 +1,7 @@
 # CareerSense
 
+Visit the site here: [CareerSense](https://careersense.duckdns.org/)
+
 CareerSense is a full-stack SaaS application that helps users analyze their resumes and discover relevant job opportunities. The platform provides secure authentication, resume parsing, skill extraction, and job matching through a clean and modern user interface.
 
 ## Overview
